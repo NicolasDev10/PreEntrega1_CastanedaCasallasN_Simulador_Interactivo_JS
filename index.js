@@ -20,12 +20,14 @@ class Libro {
  
 
 function escogerLibro() {
-  console.log('LIBROS:')  
-  console.log(libro1,libro2)
+  console.log('LIBROS:')
+  for(let y=0;y<libros.length;y++){
+  console.log(libros[y])
+  }
    let cantidad=parseInt(prompt('¿Cuantos libros quieres comprar?'))
    if(cantidad<=libros.length){   
    for(let i=1;i<=cantidad;i++){    
-    let op=parseInt(prompt('¿Que libro deseas comprar?'))
+    let op=parseInt(prompt('¿Que libro deseas comprar? Digita el id'))
     switch(op){
       case 1:
         console.log('¡Felicidades!, compraste '+libro1['nombre']+' y el precio final con IVA y envio son '+libro1.precioFinal()+' pesos colombianos')        
@@ -46,8 +48,8 @@ function escogerLibro() {
   let opcion = parseInt(prompt(
     "BIENVENIDO A BOOKEND \n\n" +
       "Escoge una opcion: \n" +
-      "1. Comprar un libro  \n" +
-      "2. Vender un libro  \n" +
+      "1. Comprar libro  \n" +
+      "2. Vender libro  \n" +
       "3. Salir"
   ));
 
