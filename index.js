@@ -22,7 +22,7 @@ class Libro {
   let precioFinal=0
   
 function imprimirLibros(libros){
-  console.log('LIBROS:')
+  console.log('LIBROS DISPONIBLES:')
   for(let y=0;y<libros.length;y++){
   console.log(libros[y])
   }
@@ -76,7 +76,18 @@ function venderLibro(){
 }
 
 function borrarLibro(){
-
+  imprimirLibros(libros)
+  let borrar =parseInt(prompt('Ingresa el id del libro que deseas borrar'))
+  if(borrar>=1){
+  for(const lib of libros){
+    if(borrar===lib['id']){
+      libros.splice(borrar-1,1)
+    }
+  }
+  alert('¡Felicidades! El libro ha sido borrado exitosamente')
+  imprimirLibros(libros)
+}else{alert('Libro no existe')}
+  
 }
 
 
@@ -96,9 +107,10 @@ function borrarLibro(){
     case 2:
       venderLibro();
       break;
-    case 2:
+    case 3:
       borrarLibro();
-      break;         
-      
+      break;
+    default:
+      break;       
   }
 
