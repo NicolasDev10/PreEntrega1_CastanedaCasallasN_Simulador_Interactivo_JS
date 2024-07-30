@@ -14,12 +14,15 @@ class Libro {
     return precioFinal
   }
 }
-  const envio=5000
-  const libro1 = new Libro( 1,"100 años de soledad","Gabo","alfaguara", 2002, 80000,false);
-  const libro2= new Libro( 2,"Akelerre","Mario mendoza","planeta", 2000, 100000,false);
-  const libros=[libro1,libro2]
-  const carrito=[]
   let precioFinal=0
+  const envio=5000
+  const libro1 = new Libro( 1,"100 años de soledad","Gabo","norma", 2016, 80000,false);
+  const libro2= new Libro( 2,"Akelerre","Mario Mendoza","planeta", 2000, 40000,false);
+  const libro3= new Libro( 3,"EL problema de los 3 cuerpos","Cixin Liu","PRH", 2023, 49000,false);
+  const libro4= new Libro( 4,"Incendiario","Itiel Arroyo","Vida", 2023, 78000,false);
+  const libro5= new Libro( 5,"Viaje al centro de la tierra","Jules Verne","Alianza", 2001, 39000,false);
+  const libros=[libro1,libro2,libro3,libro4,libro5]
+  const carrito=[]  
   
 function imprimirLibros(libros){
   console.log('LIBROS DISPONIBLES:')
@@ -45,6 +48,21 @@ function comprarLibro() {
         carrito.push(libro2)
         libro2['vendido']=true               
         break;
+      case 3:
+        console.log('¡Felicidades!, agregaste al carrito '+libro3['nombre']+' y el precio final con IVA es '+libro3.precioMasIva()+' pesos colombianos')
+        carrito.push(libro3)
+        libro3['vendido']=true               
+        break;
+      case 4:
+        console.log('¡Felicidades!, agregaste al carrito '+libro4['nombre']+' y el precio final con IVA es '+libro4.precioMasIva()+' pesos colombianos')
+        carrito.push(libro4)
+        libro4['vendido']=true               
+        break;
+      case 5:
+        console.log('¡Felicidades!, agregaste al carrito '+libro5['nombre']+' y el precio final con IVA es '+libro5.precioMasIva()+' pesos colombianos')
+        carrito.push(libro5)
+        libro5['vendido']=true               
+        break;
       default:
         alert('No existe o no puedes comprar ese libro')
         break;
@@ -57,22 +75,26 @@ function comprarLibro() {
     }   
     console.log('El precio final de los libros mas el envio (5000) es de '+(precioFinal+envio)+' pesos colombianos')
   }else{
-    alert('No hay tantos libros disponibles')
+    alert('Ingresa un numero de libros disponibles')
   }
 }
 
 function venderLibro(){  
-  let nombre,autor,editorial,año,precio=0  
-    nombre=prompt('Ingresa el nombre del libro ')
-    autor=prompt('Ingresa el autor del libro ')
-    editorial=prompt('Ingresa la editorial del libro ')
-    año=parseInt(prompt('Ingresa el año de publicacion del libro '))
-    precio=parseFloat(prompt('Ingresa el precio (sin IVA) del libro '))
-    const libroN = new Libro( 3,nombre,autor,editorial, año, precio,false);
+  let nombre,autor,editorial,año,precio=0
+  let vender =parseInt(prompt('Ingresa cuantos libros quieres vender'))
+  if(vender>=1){ 
+    for(let i=1;i<=vender;i++){ 
+    nombre=prompt('Ingresa el nombre del libro '+i)
+    autor=prompt('Ingresa el autor del libro '+i)
+    editorial=prompt('Ingresa la editorial del libro '+i)
+    año=parseInt(prompt('Ingresa el año de publicacion del libro '+i))
+    precio=parseFloat(prompt('Ingresa el precio (sin IVA) del libro '+i))
+    let libroN = new Libro( i+5,nombre,autor,editorial, año, precio,false);
     libros.push(libroN)
-  
-  alert('¡Felicidades! Tu libro ha sido agregado exitosamente')
+    alert('¡Felicidades! Tu libro ha sido agregado exitosamente')
+  }  
   imprimirLibros(libros)
+}else{alert('No quieres vender ningun libro, bye')}
 }
 
 function borrarLibro(){
