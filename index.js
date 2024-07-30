@@ -98,7 +98,7 @@ function venderLibro(){
 }
 
 function borrarLibro(){
-  imprimirLibros(libros)
+  //imprimirLibros(libros)
   let borrar =parseInt(prompt('Ingresa el id del libro que deseas borrar'))
   if(borrar>=1){
   for(const lib of libros){
@@ -111,11 +111,10 @@ function borrarLibro(){
 }else{alert('Libro no existe')}
   
 }
-
-
-  let opcion = parseInt(prompt(
-    "BIENVENIDO A BOOKEND \n\n" +
-      "Escoge una opcion: \n" +
+let opcion=parseInt(prompt("¡BIENVENIDO A BOOKEND!\n\n Ingresa tu nombre"))
+do{
+   opcion = parseInt(prompt(    
+      "Escoge una opcion: \n\n" +
       "1. Comprar libro  \n" +
       "2. Vender libro  \n" +
       "3. Borrar libro  \n" +
@@ -135,4 +134,4 @@ function borrarLibro(){
     default:
       break;       
   }
-
+}while(opcion!==4)
