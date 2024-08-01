@@ -111,10 +111,10 @@ function borrarLibro(){
 }else{alert('Libro no existe')}
   
 }
-let opcion=parseInt(prompt("¡BIENVENIDO A BOOKEND!\n\n Ingresa tu nombre"))
+let opcion=prompt("¡BIENVENIDO A BOOKEND!\n\n Ingresa tu nombre:")
 do{
    opcion = parseInt(prompt(    
-      "Escoge una opcion: \n\n" +
+      "Escoge una opcion: \n\n"+
       "1. Comprar libro  \n" +
       "2. Vender libro  \n" +
       "3. Borrar libro  \n" +
